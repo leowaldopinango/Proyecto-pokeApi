@@ -1,0 +1,46 @@
+<template>
+	<lightning-card title="Pokemons">
+		<div class="slds-card__body_inner">
+			<!-- Start Pokemon list -->
+				<template if:true={pokemons.data}>
+						<!--handleSearchTermChange agrega un campo de entrada de búsqueda, asi buscamos por nombres de pokemons -->
+					<div class="filtroBusqueda">
+						<lightning-input type="search" 
+							onchange={handleSearchTermChange}
+							label="Atrapa tu pokemon"
+							placeholder="nombre del pokemon"
+							value={searchTerm}>
+							</lightning-input>
+					</div>	
+						<!-- Combobox Pokemon here -->
+					<c-poke-filter onpokefilter={handlePokeFilter}> </c-poke-filter>
+					<!-- contador de pokemones a mostrar -->
+					<div class="cant">Pokemones encontrados: {pokemons.data.length}	</div>
+					<lightning-layout multiple-rows="true" pull-to-boundary="small">
+						<!-- Itero sobre cada registro de Pokemon  -->
+						<template for:each={pokemons.data} for:item="pokemon">
+							<!--marco con un keyatributo especial key={pokemon.PokeIndex__c Esa es la identificación del pokemon en nuestro componente.-->
+							<lightning-layout-item key={pokemon.PokeIndex__c} size="2" class="slds-var-p-around_x-small">
+								<!-- Start Pokemon tile -->
+								<c-pokemon-tile pokemon={pokemon} onpokeview={handlePokeView}></c-pokemon-tile>
+								<!-- End Pokemon tile -->
+							</lightning-layout-item>
+						</template>
+					</lightning-layout>
+						<!-- No pokemons found if:false={hasResults} -->
+						<template if:false={hasResults}>
+							<div class="slds-align_absolute-center slds-var-m-vertical_small">
+								Lo sentimos el pokemon ingresado no existe, intente con otro pokemon!
+							</div>
+						</template>
+				</template>
+			<!-- End Pokemon list -->
+			<!-- Data failed to load -->
+			<template if:true={pokemons.error}>
+				<div class="slds-text-color_error">
+					A ocurrido un error mientras se intentaba cargar la lista, intentelo mas tarde!
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

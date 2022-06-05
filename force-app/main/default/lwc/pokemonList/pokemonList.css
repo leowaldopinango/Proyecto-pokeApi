@@ -1,0 +1,17 @@
+.filtroBusqueda{
+    color: black;
+    display: inline-flex;
+    margin: 0 10px;
+   
+}
+.cant{
+    font-size:13px;
+    display: inline-flex;
+   margin: 0 10px 0 10px;
+   color: black;
+ 
+}
+.slds-card__body_inner{
+    background-color: rgb(221, 217, 217);
+    
+  }

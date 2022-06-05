@@ -1,0 +1,26 @@
+<template>
+   <div class="filtro">
+        <lightning-combobox
+        name="tipo"
+        label="Tipo"
+        value={tipo}
+        placeholder="Seleciona el Tipo"
+        options={tipos}
+        onchange={handleTipoChange} >
+    </lightning-combobox>
+  </div>
+
+   <div class="filtro">
+
+      <lightning-combobox
+            name="generacion"
+            label="Generacion"
+            value={generacion}
+            placeholder="Selecciona la Generacion"
+            options={generaciones}
+            onchange={handleGeneracionChange} >
+        </lightning-combobox>
+
+  </div>
+
+</template>

@@ -1,0 +1,16 @@
+.pokemon-tile {
+ border: 1px solid black;
+  background: rgb(19, 18, 18);
+  border-radius: .25rem;
+  display: block;
+ 
+}
+.pokemon-silhouette {
+    height: 100px;
+}
+.pokemon-tile-body {
+   background-color:rgb(176, 211, 238)  ;
+  }
+.slds-media__body{
+  color:black;
+}
